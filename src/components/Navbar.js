@@ -11,9 +11,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Login
-                            </a>
+                            <a className="nav-link">Login</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link"><i class="fas fa-shopping-cart"></i></a>

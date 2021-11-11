@@ -20,3 +20,16 @@ code {
 .navbar-brand {
   color: white !important;
 }
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+h1{
+  font-size: 18px !important;
+  text-align: left !important;;
+}
+
+.img-fluid {
+  height: 200px !important;
+}
