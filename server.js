@@ -1,9 +1,11 @@
 const express = require('express')
 const db = require('./db')
-
+const productRoute = require('./routes/productRoute')
 
 const app = express();
 const PORT = 5000;
+
+app.use("/api/products/", productRoute)
 app.get("/", (req, res) => {
     res.send("test")
 })
