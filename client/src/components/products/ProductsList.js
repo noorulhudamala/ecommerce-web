@@ -1,13 +1,15 @@
-import React from 'react'
-import ProductItem from './ProductItem'
-import products from '../../data/products'
+import React, { useState } from 'react'
 
-export default function productsList() {
+import ProductItem from './ProductItem'
+
+export default function productsList({products}) {
+    
+    
     return (
         <>
-            {products.map(product => (
+            {products.length ? products?.map(product => (
                 <ProductItem product={product} />
-            ))}
+            )) : null}
         </>
     )
 }

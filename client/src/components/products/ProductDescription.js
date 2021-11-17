@@ -1,10 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import products from '../../data/products'
-
 
 export default function ProductDescription() {
     const params = useParams();
+    const products = []
     const product = products.find(product => product.id === +params.id);
     return (
         <div>
