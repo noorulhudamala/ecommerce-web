@@ -1,5 +1,3 @@
-import { initialState } from "../store"
-
 export const productActionTypes = {
     GET_PRODUCTS_REQUEST: "GET_PRODUCTS_REQUEST",
     GET_PRODUCTS_SUCCESS: "GET_PRODUCTS_SUCCESS",
@@ -8,6 +6,12 @@ export const productActionTypes = {
     GET_PRODUCTBYID_FAILED: "GET_PRODUCTBYID_FAILED",
     GET_PRODUCTBYID_SUCCESS: "GET_PRODUCTBYID_SUCCESS",
 
+}
+export const initialState = {
+    loading: false,
+    products: [],
+    product: {},
+    error: {}
 }
 
 export const getAllProductsReducer = (state = initialState, action) => {

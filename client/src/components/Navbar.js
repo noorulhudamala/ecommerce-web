@@ -1,6 +1,10 @@
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 
 export default function Navbar() {
+    const dispatch = useDispatch();
+    const addToCartState = useSelector(state => state.addToCartReducer)
+    const { cartItems } = addToCartState
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -14,7 +18,7 @@ export default function Navbar() {
                             <a className="nav-link">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link"><i className="fas fa-shopping-cart"></i></a>
+                            <a className="nav-link"><i className="fas fa-shopping-cart"></i>{cartItems.length}</a>
                         </li>
                     </ul>
                 </div>

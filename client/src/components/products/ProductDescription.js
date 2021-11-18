@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductById } from '../../store/actions/productActions';
+import { addToCart } from '../../store/actions/cartActions';
 
 
 export default function ProductDescription() {
@@ -9,9 +10,15 @@ export default function ProductDescription() {
     const dispatch = useDispatch();
     const getProductByIdState = useSelector(state => state.getProductByIdReducer);
     const { loading, product, error } = getProductByIdState
+
+    const [quantity, setQuantity] = useState(0)
     useEffect(() => {
         dispatch(getProductById(params?.id))
     }, [])
+
+    const addToCartHandler = () => {
+        dispatch(addToCart(product, quantity))
+    }
 
     return (
         <div>
@@ -33,11 +40,11 @@ export default function ProductDescription() {
                                     <>
                                         <h1>Select Quantity</h1>
 
-                                        <select>
+                                        <select value={quantity} onChange = {e => setQuantity(e.target.value)}>
                                             {[...Array(product.countInStock).keys()].map((_, idx) => <option value={idx + 1}>{idx + 1}</option>)}
                                         </select>
                                         <hr />
-                                        <button className="btn btn-dark"> ADD TO CART</button>
+                                        <button className="btn btn-dark float-right" onClick={addToCartHandler}> ADD TO CART</button>
                                     </>
                                     : <h1>Out of Stock</h1>
                             }
