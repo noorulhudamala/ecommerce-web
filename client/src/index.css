@@ -41,3 +41,13 @@ h1{
 p {
   text-align: left !important;
 }
+
+h2{
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+.btn{
+  background-color: teal !important;
+  color: white !important;
+  width: 200px !important;
+}

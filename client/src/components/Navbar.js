@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 export default function Navbar() {
     const dispatch = useDispatch();
-    const addToCartState = useSelector(state => state.addToCartReducer)
+    const addToCartState = useSelector(state => state.cartReducer)
     const { cartItems } = addToCartState
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,7 +18,7 @@ export default function Navbar() {
                             <a className="nav-link">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link"><i className="fas fa-shopping-cart"></i>{cartItems.length}</a>
+                            <a className="nav-link" href="/cart"><i className="fas fa-shopping-cart"></i>{cartItems.length}</a>
                         </li>
                     </ul>
                 </div>

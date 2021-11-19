@@ -11,7 +11,7 @@ export default function ProductDescription() {
     const getProductByIdState = useSelector(state => state.getProductByIdReducer);
     const { loading, product, error } = getProductByIdState
 
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
     useEffect(() => {
         dispatch(getProductById(params?.id))
     }, [])
@@ -40,7 +40,7 @@ export default function ProductDescription() {
                                     <>
                                         <h1>Select Quantity</h1>
 
-                                        <select value={quantity} onChange = {e => setQuantity(e.target.value)}>
+                                        <select value={quantity} onChange = {e => setQuantity(Number(e.target.value))}>
                                             {[...Array(product.countInStock).keys()].map((_, idx) => <option value={idx + 1}>{idx + 1}</option>)}
                                         </select>
                                         <hr />
