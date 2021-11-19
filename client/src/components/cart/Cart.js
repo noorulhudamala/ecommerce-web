@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {addToCart, deletFromCart} from '../../store/actions/cartActions'
+import { addToCart, deletFromCart } from '../../store/actions/cartActions'
 
 export default function Cart() {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export default function Cart() {
     const onItemDeleteHandler = (productId) => {
         dispatch(deletFromCart(productId))
     }
-    var subTotal = cartItems?.length && cartItems.reduce((sum, item) => sum+ (item?.quantity * item?.price), 0)
+    var subTotal = cartItems?.length && cartItems.reduce((sum, item) => sum + (item?.quantity * item?.price), 0)
     return (
         <div>
             <div className="row mt-5 justify-content-center">
@@ -34,30 +34,27 @@ export default function Cart() {
                                 <tr>
                                     <th>{cartItem.name}</th>
                                     <th>{cartItem.price}</th>
-                                    <th><select value={cartItem.quantity} onChange={(e)=> onProductQuantityChange(e, cartItem)}>
-                                        {[...Array(cartItem.countInStock)].map((_, i)=>(
-                                        <option value={i+1}>{i+1} </option>
-                                    ))}</select></th>
+                                    <th><select value={cartItem.quantity} onChange={(e) => onProductQuantityChange(e, cartItem)}>
+                                        {[...Array(cartItem.countInStock)].map((_, i) => (
+                                            <option value={i + 1}>{i + 1} </option>
+                                        ))}</select></th>
                                     <th>{cartItem.quantity * cartItem.price}</th>
                                     <th><span onClick={() => onItemDeleteHandler(cartItem._id)}><i class="far fa-trash-alt"></i></span></th>
                                 </tr>
                             ) : <tr>
-                                    <div className="text-center">
+                                <div className="text-center">
                                     No Item added
-                                        </div>
-                            
-                            
-                        </tr>}
+                                </div>
+                            </tr>}
                         </tbody>
                     </table>
-
                     <hr />
                     <h2 className="text-center">Sub Total: Rs: {subTotal}</h2>
-                    <hr/>
+                    <hr />
                     <div className="text-center p-3">
-                    <button className="btn"> Pay Now</button>
+                        <button className="btn"> Pay Now</button>
                     </div>
-                    
+
                 </div>
 
             </div>
