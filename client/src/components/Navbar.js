@@ -15,7 +15,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link">Login</a>
+                            <a className="nav-link" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/cart"><i className="fas fa-shopping-cart"></i>{cartItems.length}</a>
