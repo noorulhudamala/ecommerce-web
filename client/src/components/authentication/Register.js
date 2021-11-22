@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { registerUser } from '../../store/actions/userActions'
+import { UserActionTypes } from '../../store/reducers/userReducer'
+
 
 export default function Register() {
+    const dispatch = useDispatch()
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -12,8 +17,15 @@ export default function Register() {
         setUserDetails(prevState => ({ ...prevState, [e.target.name]: e.target.value }))
     }
 
-    const registerUser = (e) => {
+    const registerUserHandler = (e) => {
         e.preventDefault();
+
+        if (userDetails?.password === userDetails?.confirmPassword) {
+            // dispatch(registerUser())
+        }
+        else {
+            
+        }
     }
 
     return (
@@ -22,7 +34,7 @@ export default function Register() {
                 <div className="col-md-5 card p-3" style={{ margin: "150px" }}>
                     <div className="div">
                         <h2 className="text-center">Register</h2>
-                        <form onSubmit={registerUser}>
+                        <form onSubmit={registerUserHandler}>
                             <input type="text" name="name" className="form-control" required value={userDetails?.name} onChange={(onChangeValueHandler)} placeholder="Username" />
                             <input type="text" name="email" className="form-control" required value={userDetails?.email} onChange={(onChangeValueHandler)} placeholder="Email" />
                             <input type="text" name="password" className="form-control" required value={userDetails?.password} onChange={(onChangeValueHandler)} placeholder="Password" />

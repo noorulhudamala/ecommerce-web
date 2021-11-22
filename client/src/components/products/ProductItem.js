@@ -7,7 +7,7 @@ export default function ProductItem({ product }) {
     return (
         <div className="col-md-3 m-3 card p-2 text-left card" key= {product?._id}>
             <Link to={`/product/${product._id}`}>
-                <img src={product.image} className="img-fluid" />
+                <img src={product.image} className="img-fluid" alt="productimage" />
                 <h1>{product.name}</h1>
                 <ReactStars
                     count={5}

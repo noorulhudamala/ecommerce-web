@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { getAllProductsReducer, getProductByIdReducer } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
+import { registerUserReducer } from "./reducers/userReducer";
 
 const finalReducer = combineReducers({
     getAllProductsReducer: getAllProductsReducer,
     getProductByIdReducer: getProductByIdReducer,
-    cartReducer: cartReducer
+    cartReducer: cartReducer,
+    registerUserReducer: registerUserReducer
 })
 
 const composeEnhancers = composeWithDevTools({

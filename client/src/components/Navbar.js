@@ -1,8 +1,7 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 export default function Navbar() {
-    const dispatch = useDispatch();
     const addToCartState = useSelector(state => state.cartReducer)
     const { cartItems } = addToCartState
     return (
