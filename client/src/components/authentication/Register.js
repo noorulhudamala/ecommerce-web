@@ -21,7 +21,12 @@ export default function Register() {
         e.preventDefault();
 
         if (userDetails?.password === userDetails?.confirmPassword) {
-            // dispatch(registerUser())
+            let user = {
+                name: userDetails?.name,
+                email: userDetails?.email,
+                password: userDetails?.password
+            }
+            dispatch(registerUser(user))
         }
         else {
             
