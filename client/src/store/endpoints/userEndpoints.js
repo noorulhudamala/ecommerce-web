@@ -3,6 +3,7 @@ export const UserEndpoints = {
         
     },
     POST: {
-        registerUser: () => `/api/user/register`
+        registerUser: () => `/api/user/register`,
+        loginUser: () => `/api/user/login`
     }
 }

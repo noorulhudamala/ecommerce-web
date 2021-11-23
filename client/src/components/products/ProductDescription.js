@@ -3,6 +3,8 @@ import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductById } from '../../store/actions/productActions';
 import { addToCart } from '../../store/actions/cartActions';
+import Loader from '../shared/Loader';
+import Error from '../shared/Error';
 
 
 export default function ProductDescription() {
@@ -22,7 +24,7 @@ export default function ProductDescription() {
 
     return (
         <div>
-            {loading ? <h1>Loading...</h1> : error ? <h1>Something went wrong</h1> :
+            {loading ? <Loader/> : error ? <Error error={"Something went wrong"}/> :
                 <div className="row">
                     <div className="col-md-6">
                         <div className="card p-2 m-2" >

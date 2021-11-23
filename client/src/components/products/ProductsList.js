@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductItem from './ProductItem'
 import { getAllProducts } from '../../store/actions/productActions'
+import Loader from '../shared/Loader'
+import Error from '../shared/Error'
 
 const ProductsList = () => {
     const dispatch = useDispatch();
@@ -19,7 +21,7 @@ const ProductsList = () => {
     return (
         <>
             {
-                loading ? <h1>Loading...</h1> : error ? <h1>Something wentwrong...</h1> :
+                loading ? <Loader /> : error ? <Error error={"Something went wrong..."}/> :
                     products.length ? products?.map(product => (
                         <ProductItem product={product} />
                     )) : null

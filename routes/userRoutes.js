@@ -28,4 +28,25 @@ router.post("/register", async (req, res) => {
 
 })
 
+router.post("/login", async (req, res) => {
+    try {
+        User.find({ email: req.body.email, password: req.body.password }, (err, docs) => {
+            if (docs.length) {
+                const loggedInUser = {
+                    _id: docs[0]._id,
+                    name: docs[0].name,
+                    email: docs[0].email
+                }
+                res.send(loggedInUser)
+            } else {
+                res.status(400).json({ message: "Something went wrong" })
+            }
+
+        })
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong" })
+    }
+
+})
+
 module.exports = router;
